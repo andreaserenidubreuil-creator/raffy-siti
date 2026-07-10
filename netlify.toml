@@ -1,0 +1,10 @@
+# Static preview hosting for Siti SME. No build step — self-contained HTML.
+[build]
+  publish = "."
+  command = ""
+
+# Keep every preview out of Google's index.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

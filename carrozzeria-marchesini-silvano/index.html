@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrozzeria Marchesini Silvano — Carrozzeria a Mantova</title>
+<meta name="description" content="Carrozzeria Marchesini Silvano, carrozzeria in Strada dei Colli 36. Riparazioni, verniciatura e soccorso auto. ★4,6 su Google. Chiama +39 0376 800702.">
+
+<!-- =====================================================================
+     DATI DA NOTION (pagina "Marchesini Silvano" — database Attività)
+       Telefono: +39 0376 800702   |   Indirizzo: Strada dei Colli, 36
+       Google: ★4,6 · 22 recensioni   |   Tipo: Carrozzeria
+     DA COMPLETARE (non presenti in Notion): Città/CAP/Provincia, Email,
+       P.IVA, orari, testi recensioni, link Google Maps.
+       Prefisso 0376 = provincia di Mantova (da confermare).
+     ===================================================================== -->
+
+<style>
+  body[data-theme="blu"]  { --brand:#1b4b8f; --accent:#2f80ed; --ink:#1c2430; --muted:#5c6673; --line:#e6e9ef; --bg:#fff; --bg-alt:#f5f7fb; --dark:#141c2b; }
+  body[data-theme="verde"]{ --brand:#15665a; --accent:#1fa389; --ink:#18261f; --muted:#566158; --line:#e2ece7; --bg:#fff; --bg-alt:#f3f8f6; --dark:#12211c; }
+  body[data-theme="scuro"]{ --brand:#f2b942; --accent:#f2b942; --ink:#e9edf3; --muted:#9aa5b4; --line:#2a3242; --bg:#141821; --bg-alt:#1b202b; --dark:#0d1017; }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  .section{padding:56px 0}
+  h1,h2,h3{line-height:1.25;color:var(--ink)}
+  h2.title{font-size:1.7rem;color:var(--brand);margin-bottom:6px}
+  .lead-sub{color:var(--muted);margin-bottom:34px}
+
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;
+    padding:13px 24px;border-radius:8px;border:0;cursor:pointer;transition:.18s}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{filter:brightness(1.08)}
+  .btn-line{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.85)}
+  .btn-line:hover{background:rgba(255,255,255,.14)}
+
+  .ph-img{background:linear-gradient(135deg,var(--bg-alt),var(--line));background-size:cover;
+    background-position:center;display:flex;align-items:center;justify-content:center;
+    color:var(--muted);font-size:.78rem;letter-spacing:.5px}
+
+  header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--brand);font-size:1.1rem}
+  .logo .mark{width:38px;height:38px;border-radius:8px;flex:none}
+  header nav{display:flex;gap:22px}
+  header nav a{font-weight:600;font-size:.9rem;color:var(--ink)}
+  header nav a:hover{color:var(--accent)}
+  header .call{white-space:nowrap}
+
+  .hero{background:var(--dark);color:#fff;text-align:center;padding:80px 20px}
+  .hero .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.78rem;opacity:.75;margin-bottom:14px}
+  .hero h1{font-size:2.3rem;max-width:640px;margin:0 auto 14px;color:#fff}
+  .hero p{font-size:1.12rem;max-width:540px;margin:0 auto 28px;opacity:.9}
+  .hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:22px}
+  .card .ico{width:44px;height:44px;border-radius:10px;background:var(--bg-alt);
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px}
+  .card h3{font-size:1.05rem;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:.9rem}
+
+  .why{background:var(--bg-alt)}
+  .why .grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  .why .item{text-align:center;padding:10px}
+  .why .item .big{font-size:1.8rem}
+  .why .item h3{color:var(--brand);font-size:1.05rem;margin:8px 0 4px}
+  .why .item p{color:var(--muted);font-size:.9rem}
+
+  .reviews .grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .review{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:22px}
+  .review .stars{color:#f5a623;margin-bottom:10px;letter-spacing:2px}
+  .review p{font-style:italic;color:var(--ink);margin-bottom:12px}
+  .review .who{font-weight:700;color:var(--muted);font-size:.85rem}
+
+  .contact{background:var(--dark);color:#fff}
+  .contact .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .contact h2{color:#fff}
+  .contact .info p{margin-bottom:12px;opacity:.9}
+  .contact .info b{display:block;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;opacity:.6}
+  .contact .map{height:100%;min-height:220px;border-radius:12px}
+
+  footer.foot{background:#0c0f16;color:#8b95a5;text-align:center;padding:22px;font-size:.82rem}
+
+  .call-fixed{display:none}
+
+  @media(max-width:720px){
+    header nav{display:none}
+    .contact .cols{grid-template-columns:1fr;gap:24px}
+    .hero h1{font-size:1.9rem}
+    .call-fixed{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:80;padding:10px;
+      background:var(--bg);border-top:1px solid var(--line)}
+    .call-fixed .btn{width:100%;justify-content:center}
+    body{padding-bottom:68px}
+  }
+</style>
+</head>
+
+<body data-theme="blu">
+
+  <!-- ============ HEADER ============ -->
+  <header>
+    <div class="wrap">
+      <a class="logo" href="#"><span class="ph-img mark">CM</span>Carrozzeria Marchesini</a>
+      <nav>
+        <a href="#servizi">Servizi</a>
+        <a href="#perche">Perché noi</a>
+        <a href="#recensioni">Recensioni</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+      <a class="btn btn-primary call" href="tel:+390376800702">📞 Chiama</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <p class="eyebrow">Carrozzeria · Strada dei Colli 36 · [CITTÀ]</p>
+    <h1>La tua auto tornerà come nuova</h1>
+    <p>Riparazioni, verniciatura e soccorso stradale con la cura artigianale di Silvano Marchesini. Preventivo gratuito e senza impegno.</p>
+    <p style="opacity:.95;font-size:1rem;margin-top:-14px"><span style="color:#f5a623;letter-spacing:2px">★★★★★</span> &nbsp;4,6 su Google · 22 recensioni</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="tel:+390376800702">📞 Chiama ora</a>
+      <a class="btn btn-line" href="#contatti">Dove siamo</a>
+    </div>
+  </section>
+
+  <!-- ============ SERVIZI ============ -->
+  <section class="section" id="servizi">
+    <div class="wrap">
+      <h2 class="title">I nostri servizi</h2>
+      <p class="lead-sub">Assistenza completa sulla carrozzeria, dal piccolo graffio al sinistro importante.</p>
+      <div class="grid">
+        <div class="card"><div class="ico">🔧</div><h3>Riparazione carrozzeria</h3><p>Ammaccature, urti e danni da sinistro riportati a nuovo su ogni marca e modello.</p></div>
+        <div class="card"><div class="ico">🎨</div><h3>Verniciatura</h3><p>Verniciatura a forno con abbinamento colore preciso e finiture professionali.</p></div>
+        <div class="card"><div class="ico">🛠️</div><h3>Riparazione senza vernice</h3><p>Rimozione ammaccature da grandine e piccoli danni senza toccare la vernice originale.</p></div>
+        <div class="card"><div class="ico">🚗</div><h3>Soccorso stradale</h3><p>Recupero e traino del veicolo in caso di incidente o guasto, anche a domicilio.</p></div>
+        <div class="card"><div class="ico">📋</div><h3>Gestione pratiche sinistro</h3><p>Ci occupiamo noi della pratica con l'assicurazione, dalla perizia al ritiro.</p></div>
+        <div class="card"><div class="ico">✅</div><h3>Sostituzione cristalli</h3><p>Riparazione e sostituzione di parabrezza e vetri, con eventuale intervento assicurativo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PERCHÉ SCEGLIERCI ============ -->
+  <section class="section why" id="perche">
+    <div class="wrap">
+      <h2 class="title">Perché sceglierci</h2>
+      <p class="lead-sub">Esperienza e serietà artigianale al servizio dei nostri clienti.</p>
+      <div class="grid">
+        <div class="item"><div class="big">⭐</div><h3>Esperienza</h3><p>Anni di lavoro sulla carrozzeria con la cura di un artigiano.</p></div>
+        <div class="item"><div class="big">💬</div><h3>Preventivo gratuito</h3><p>Sopralluogo e preventivo chiaro, senza sorprese e senza impegno.</p></div>
+        <div class="item"><div class="big">⏱️</div><h3>Tempi rapidi</h3><p>Auto pronta nei tempi concordati, con aggiornamenti sullo stato del lavoro.</p></div>
+        <div class="item"><div class="big">🤝</div><h3>Auto di cortesia</h3><p>Non resti mai a piedi: vettura sostitutiva disponibile durante la riparazione.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RECENSIONI (SEGNAPOSTO — sostituire con recensioni reali) ============ -->
+  <section class="section reviews" id="recensioni">
+    <div class="wrap">
+      <h2 class="title">Cosa dicono i clienti</h2>
+      <p class="lead-sub"><span style="color:#f5a623;letter-spacing:2px">★★★★★</span> &nbsp;<b>4,6</b> di media su <b>22 recensioni</b> Google.</p>
+      <div class="grid">
+        <div class="review"><div class="stars">★★★★★</div><p>"[Recensione da inserire — es. Lavoro impeccabile, auto come nuova.]"</p><div class="who">— [Cliente 1]</div></div>
+        <div class="review"><div class="stars">★★★★★</div><p>"[Recensione da inserire — es. Preventivo onesto e tempi rispettati.]"</p><div class="who">— [Cliente 2]</div></div>
+        <div class="review"><div class="stars">★★★★★</div><p>"[Recensione da inserire — es. Persone serie e disponibili.]"</p><div class="who">— [Cliente 3]</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTATTI (DATI SEGNAPOSTO) ============ -->
+  <section class="section contact" id="contatti">
+    <div class="wrap">
+      <div class="cols">
+        <div class="info">
+          <h2 class="title" style="color:#fff">Contattaci</h2>
+          <p class="lead-sub" style="color:rgba(255,255,255,.7)">Chiama o passa a trovarci.</p>
+          <p><b>Telefono</b><a href="tel:+390376800702">+39 0376 800702</a></p>
+          <p><b>Email</b>[da inserire]</p>
+          <p><b>Indirizzo</b>Strada dei Colli, 36 · [CAP] [CITTÀ] (MN)</p>
+          <p><b>Orari</b>[es. Lun–Ven 8:00–12:30 / 14:00–18:00 · Sab su appuntamento]</p>
+          <a class="btn btn-primary" href="tel:+390376800702">📞 Chiama ora</a>
+        </div>
+        <div class="ph-img map">MAPPA — incolla l'embed di Google Maps</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot">
+    © 2026 Carrozzeria Marchesini Silvano · Strada dei Colli 36, [CITTÀ] (MN) · P.IVA [PARTITA_IVA]
+  </footer>
+
+  <div class="call-fixed"><a class="btn btn-primary" href="tel:+390376800702">📞 Chiama ora</a></div>
+
+  <!-- ============ SEO — LocalBusiness ============ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"AutoBodyShop",
+    "name":"Carrozzeria Marchesini Silvano",
+    "telephone":"+390376800702",
+    "address":{"@type":"PostalAddress","streetAddress":"Strada dei Colli, 36","postalCode":"[CAP]","addressLocality":"[CITTÀ]","addressRegion":"MN","addressCountry":"IT"},
+    "openingHours":"[ORARI_SCHEMA]",
+    "priceRange":"€€",
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","reviewCount":"22"}
+  }
+  </script>
+
+</body>
+</html>
