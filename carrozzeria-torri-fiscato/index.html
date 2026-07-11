@@ -1,149 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex,nofollow">
-<title>Carrozzeria Torri F.lli Fiscato — Carrozzeria a Vicenza</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carrozzeria Torri F.lli Fiscato — Vicenza</title>
 <style>
-  /* ---------- PALETTE (4 varianti via data-theme) ---------- */
-  body[data-theme="officina"]{--brand:#d7263d;--brand-dark:#b01e30;--on-brand:#fff;--ink:#0f1419;--steel:#1e2a36;--paper:#f6f8fa;--muted:#69747f;--line:#e5e9ee;--accent-soft:rgba(215,38,61,.10);--hero-glow:rgba(215,38,61,.35);}
-  body[data-theme="blu"]{--brand:#1f6feb;--brand-dark:#1858c4;--on-brand:#fff;--ink:#0f1622;--steel:#1c3a5e;--paper:#f5f8fc;--muted:#647085;--line:#e4e9f2;--accent-soft:rgba(31,111,235,.10);--hero-glow:rgba(31,111,235,.35);}
-  body[data-theme="verde"]{--brand:#12866b;--brand-dark:#0e6b56;--on-brand:#fff;--ink:#0f1a16;--steel:#123a30;--paper:#f4f9f7;--muted:#5d6f68;--line:#e0ece7;--accent-soft:rgba(18,134,107,.10);--hero-glow:rgba(18,134,107,.32);}
-  body[data-theme="antracite"]{--brand:#e0a326;--brand-dark:#c4881a;--on-brand:#1a1d22;--ink:#1a1d22;--steel:#2b2f36;--paper:#f7f7f5;--muted:#6b6e74;--line:#e7e7e3;--accent-soft:rgba(224,163,38,.14);--hero-glow:rgba(224,163,38,.30);}
-
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Segoe UI',Roboto,-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.65;background:var(--paper);padding-bottom:64px;}
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 22px;}
-
-  /* ---------- HERO (base + 2 layout) ---------- */
-  .hero{position:relative;background:linear-gradient(135deg,var(--steel),var(--ink));color:#fff;overflow:hidden;}
-  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% -20%,var(--hero-glow),transparent 55%);}
-  .hero .wrap{position:relative;z-index:1;}
-  .eyebrow{letter-spacing:3px;text-transform:uppercase;font-size:.78rem;color:#9fb0bf;}
-  .hero h1{font-size:2.5rem;margin:12px 0 6px;letter-spacing:.4px;}
-  .slogan{color:#cdd6de;font-size:1.12rem;max-width:640px;}
-  .rating{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);padding:7px 16px;border-radius:30px;font-size:.95rem;}
-  .rating .stars{color:#ffb400;}
-  .hero-cta{margin-top:28px;}
-
-  /* variante CENTRATA */
-  .hero--center{padding:78px 0 66px;text-align:center;}
-  .hero--center .slogan{margin:0 auto;}
-
-  /* variante SPLIT (testo + foto) */
-  .hero--split{padding:66px 0;}
-  .hero--split .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;text-align:left;}
-  .hero--split .hero-photo{min-height:260px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:#aeb8c2;font-size:.9rem;text-align:center;padding:20px;}
-
-  .btn{display:inline-block;background:var(--brand);color:var(--on-brand);padding:15px 34px;border-radius:9px;font-weight:600;font-size:1.05rem;transition:background .2s;}
-  .btn:hover{background:var(--brand-dark);}
-
-  /* ---------- SECTIONS ---------- */
-  section{padding:60px 0;}
-  section:nth-of-type(even){background:#fff;}
-  h2{font-size:1.7rem;margin-bottom:8px;}
-  .sub{color:var(--muted);margin-bottom:32px;}
-  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));}
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px;}
-  section:nth-of-type(even) .card{background:#fff;}
-  .card .ico{width:42px;height:42px;border-radius:10px;background:var(--accent-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px;}
-  .card h3{font-size:1.13rem;margin-bottom:6px;}
-  .card p{color:var(--muted);font-size:.97rem;}
-  .about{display:grid;gap:34px;grid-template-columns:1.2fr 1fr;align-items:center;}
-  .photo{background:#dfe5ec;border:1px dashed #b9c3ce;border-radius:14px;min-height:230px;display:flex;align-items:center;justify-content:center;color:#8b97a3;font-size:.9rem;text-align:center;}
-  .review{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;padding:24px;}
-  .review .stars{color:#ffb400;margin-bottom:8px;}
-  .review p{font-style:italic;color:#333;}
-
-  /* ---------- CONTACT ---------- */
-  .contact{background:var(--ink);color:#fff;text-align:center;}
-  .contact h2{color:#fff;}
-  .contact .info{color:#cdd6de;margin:6px 0;font-size:1.05rem;}
-  .contact .btn{margin-top:22px;}
-  footer{background:#0a0d10;color:#7d8794;text-align:center;padding:26px 0;font-size:.85rem;}
-
-  /* ---------- STICKY CALL BAR (mobile) ---------- */
-  .callbar{position:fixed;bottom:0;left:0;right:0;background:var(--brand);color:var(--on-brand);text-align:center;padding:16px;font-weight:600;font-size:1.05rem;box-shadow:0 -4px 16px rgba(0,0,0,.18);z-index:50;}
-  @media(min-width:720px){.callbar{display:none;}}
-  @media(max-width:719px){
-    .about{grid-template-columns:1fr;}
-    .hero h1{font-size:2rem;}
-    .hero--split .wrap{grid-template-columns:1fr;text-align:center;}
-    .hero--split .slogan{margin:0 auto;}
-    .hero--split .hero-photo{min-height:180px;}
-  }
+  :root{--ink:#1a1614;--muted:#6f6a66;--accent:#8a1f2b;--accent-dark:#6d1622;--paper:#f7f4ef;--line:#e7e1d8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Helvetica Neue','Segoe UI',Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:940px;margin:0 auto;padding:0 28px}
+  .accent{color:var(--accent)}
+  .btn{display:inline-block;border:1.5px solid var(--ink);color:var(--ink);padding:16px 40px;border-radius:0;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:.82rem;transition:.2s}
+  .btn:hover{background:var(--ink);color:var(--paper)}
+  .btn--solid{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn--solid:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff}
+  /* header minimal */
+  header.top{display:flex;justify-content:space-between;align-items:center;padding:34px 28px;max-width:940px;margin:0 auto}
+  header.top .logo{font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.95rem}
+  header.top a.call{font-size:.85rem;letter-spacing:1px;border-bottom:1.5px solid var(--accent);padding-bottom:2px}
+  /* hero minimal */
+  .hero{padding:90px 0 100px;border-bottom:1px solid var(--line)}
+  .hero .ey{letter-spacing:5px;text-transform:uppercase;font-size:.75rem;color:var(--muted);margin-bottom:34px}
+  .hero h1{font-size:4.4rem;line-height:1.02;letter-spacing:-1.5px;font-weight:700;margin-bottom:40px;max-width:16ch}
+  .hero .lead{font-size:1.2rem;color:var(--muted);max-width:44ch;margin-bottom:44px}
+  .hero .rate{margin-top:40px;font-size:.9rem;color:var(--muted);letter-spacing:.5px}
+  .hero .rate .s{color:var(--accent)}
+  @media(max-width:720px){.hero h1{font-size:2.7rem}.hero{padding:56px 0 64px}}
+  /* numbers */
+  .band{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+  .band div{padding:44px 20px;text-align:center;border-right:1px solid var(--line)}
+  .band div:last-child{border-right:none}
+  .band .n{font-size:2.6rem;font-weight:700;letter-spacing:-1px}
+  .band .l{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  @media(max-width:720px){.band{grid-template-columns:1fr;}.band div{border-right:none;border-bottom:1px solid var(--line);padding:30px}}
+  /* section */
+  section{padding:96px 0;border-bottom:1px solid var(--line)}
+  .lbl{letter-spacing:4px;text-transform:uppercase;font-size:.72rem;color:var(--accent);margin-bottom:22px}
+  h2{font-size:2.4rem;letter-spacing:-.5px;margin-bottom:8px;font-weight:700}
+  /* services minimal list */
+  .list{margin-top:40px}
+  .li{display:grid;grid-template-columns:60px 1fr;gap:24px;padding:26px 0;border-top:1px solid var(--line);align-items:baseline}
+  .li .k{font-size:.9rem;color:var(--accent);font-weight:700}
+  .li h3{font-size:1.35rem;font-weight:600;margin-bottom:4px}
+  .li p{color:var(--muted);max-width:60ch}
+  /* big testimonial */
+  .quote{padding:96px 0;border-bottom:1px solid var(--line)}
+  .quote .big{font-size:2rem;line-height:1.4;font-weight:400;letter-spacing:-.3px;max-width:24ch}
+  .quote .big .s{color:var(--accent)}
+  .quote .by{margin-top:28px;color:var(--muted);letter-spacing:1px;font-size:.9rem}
+  .mini{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:64px}
+  .mini p{color:var(--muted);font-style:italic}
+  .mini b{display:block;margin-top:10px;font-style:normal;color:var(--ink);font-size:.85rem;letter-spacing:.5px}
+  @media(max-width:720px){.quote .big{font-size:1.5rem}.mini{grid-template-columns:1fr;gap:28px}}
+  /* contact */
+  .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px 60px;margin-top:44px}
+  .cgrid .lbl{margin-bottom:8px}
+  .cgrid .v{font-size:1.05rem}
+  .cta-final{margin-top:52px}
+  @media(max-width:720px){.cgrid{grid-template-columns:1fr;gap:26px}}
+  footer{text-align:center;padding:40px 28px;color:var(--muted);font-size:.8rem;letter-spacing:.5px}
 </style>
 </head>
-<body data-theme="antracite">
-
-<header class="hero hero--split">
-  <div class="wrap">
-    <div>
-      <div class="eyebrow">Carrozzeria a Vicenza</div>
-      <h1>Carrozzeria Torri F.lli Fiscato</h1>
-      <p class="slogan">Riportiamo la tua auto come nuova — riparazioni e verniciature a regola d'arte, con la cura dell'artigiano.</p>
-      <div class="rating"><span class="stars">★★★★★</span> 4,6 su Google · 14 recensioni</div>
-      <div class="hero-cta"><a class="btn" href="tel:+390444580569">📞 Chiama ora</a></div>
-    </div>
-    <div class="hero-photo">Spazio foto — officina / lavoro realizzato</div>
-  </div>
+<body>
+<header class="top">
+  <div class="logo">Torri <span class="accent">F.lli Fiscato</span></div>
+  <a class="call" href="tel:+390444580569">Chiama · +39 0444 580569</a>
 </header>
 
+<section class="hero" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="ey">Carrozzeria · Vicenza</div>
+    <h1>La tua auto, <span class="accent">come nuova.</span></h1>
+    <p class="lead">Riparazione e verniciatura di alta qualità, con la precisione artigianale dei Fratelli Fiscato.</p>
+    <a class="btn btn--solid" href="tel:+390444580569">Chiama ora</a>
+    <div class="rate"><span class="s">★★★★★</span>&nbsp;&nbsp;4,6 su Google · 14 recensioni</div>
+  </div>
+</section>
+
+<div class="band">
+  <div><div class="n">4,6<span class="accent">★</span></div><div class="l">Media Google</div></div>
+  <div><div class="n">14</div><div class="l">Recensioni</div></div>
+  <div><div class="n">100%</div><div class="l">Pratica assicurativa gestita</div></div>
+</div>
+
 <section>
   <div class="wrap">
-    <h2>I nostri servizi</h2>
-    <p class="sub">Tutto quello che serve alla tua auto, in un unico posto di fiducia.</p>
-    <div class="grid">
-      <div class="card"><div class="ico">🔧</div><h3>Riparazione carrozzeria</h3><p>Ammaccature, graffi e danni da urto riparati con finiture impeccabili.</p></div>
-      <div class="card"><div class="ico">🎨</div><h3>Verniciatura</h3><p>Verniciatura totale o parziale, con tinta abbinata perfettamente all'originale.</p></div>
-      <div class="card"><div class="ico">📋</div><h3>Gestione sinistri</h3><p>Ti seguiamo nella pratica con l'assicurazione, dal preventivo alla consegna.</p></div>
-      <div class="card"><div class="ico">🚗</div><h3>Auto sostitutiva</h3><p>Non resti mai a piedi: auto di cortesia durante la riparazione.</p></div>
+    <div class="lbl">Servizi</div>
+    <h2>Cosa facciamo</h2>
+    <div class="list">
+      <div class="li"><div class="k">01</div><div><h3>Riparazione carrozzeria</h3><p>Ammaccature, graffi e danni da urto riportati a nuovo con finiture impeccabili.</p></div></div>
+      <div class="li"><div class="k">02</div><div><h3>Verniciatura</h3><p>Verniciatura totale o parziale con tinta abbinata perfettamente all'originale.</p></div></div>
+      <div class="li"><div class="k">03</div><div><h3>Gestione sinistri</h3><p>Seguiamo noi tutta la pratica con l'assicurazione, dal preventivo alla consegna.</p></div></div>
+      <div class="li"><div class="k">04</div><div><h3>Auto sostitutiva</h3><p>Vettura di cortesia disponibile per tutta la durata della riparazione.</p></div></div>
     </div>
   </div>
 </section>
 
-<section>
+<section class="quote">
   <div class="wrap">
-    <div class="about">
-      <div>
-        <h2>Chi siamo</h2>
-        <p class="sub" style="margin-bottom:16px;">Un punto di riferimento a Vicenza per chi cerca un lavoro fatto bene, senza sorprese.</p>
-        <p style="color:var(--muted);">Uniamo esperienza artigiana e cura del dettaglio, trattando ogni auto come fosse la nostra. Preventivi chiari, tempi rispettati e un rapporto diretto con il cliente: è così che ci siamo guadagnati la fiducia di centinaia di automobilisti della zona.</p>
-      </div>
-      <div class="photo">Spazio foto — officina e lavori realizzati</div>
+    <div class="lbl">Dicono di noi</div>
+    <p class="big">"Fratelli Fiscato <span class="s">bravissimi</span>: graffio profondo sparito del tutto e prezzo assolutamente corretto."</p>
+    <div class="by">— Francesca T. · Cliente Google</div>
+    <div class="mini">
+      <div><p>"Puntuali, mi hanno consegnato l'auto il giorno promesso. Raro di questi tempi."</p><b>Marco L.</b></div>
+      <div><p>"Verniciatura impeccabile, colore perfettamente abbinato. Consigliati senza riserve."</p><b>Sara B.</b></div>
     </div>
   </div>
 </section>
 
-<section>
+<section style="border-bottom:none">
   <div class="wrap">
-    <h2>Cosa dicono i clienti</h2>
-    <p class="sub">Recensioni reali dai nostri clienti su Google.</p>
-    <div class="grid">
-      <div class="review"><div class="stars">★★★★★</div><p>"Lavoro perfetto e prezzi onesti. Auto riconsegnata pulita e nei tempi promessi."</p></div>
-      <div class="review"><div class="stars">★★★★★</div><p>"Professionali e disponibili, mi hanno seguito in tutta la pratica assicurativa. Consigliatissimi."</p></div>
-      <div class="review"><div class="stars">★★★★★</div><p>"Ammaccatura sullo sportello sparita del tutto. Non si vede più nulla, bravissimi."</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="contact">
-  <div class="wrap">
+    <div class="lbl">Contatti</div>
     <h2>Vieni a trovarci</h2>
-    <p class="info">📍 Via degli Avieri, 12 — Vicenza</p>
-    <p class="info">📞 +39 0444 580569</p>
-    <p class="info">🕒 Lun–Ven 8:00–12:30 / 14:00–18:30 · Sab su appuntamento</p>
-    <a class="btn" href="tel:+390444580569">Chiama ora</a>
+    <div class="cgrid">
+      <div><div class="lbl">Indirizzo</div><div class="v">Via degli Avieri, 12 — Vicenza</div></div>
+      <div><div class="lbl">Telefono</div><div class="v">+39 0444 580569</div></div>
+      <div><div class="lbl">Orari</div><div class="v">Lun–Ven 8:00–12:30 / 14:00–18:30</div></div>
+      <div><div class="lbl">Sabato</div><div class="v">Su appuntamento</div></div>
+    </div>
+    <div class="cta-final"><a class="btn btn--solid" href="tel:+390444580569">Chiama ora</a></div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">© Carrozzeria Torri F.lli Fiscato · Via degli Avieri, 12 — Vicenza</div>
-</footer>
-
-<a class="callbar" href="tel:+390444580569">📞 Chiama ora · +39 0444 580569</a>
+<footer>© 2026 Carrozzeria Torri F.lli Fiscato · Via degli Avieri, 12 — Vicenza · Anteprima realizzata come esempio</footer>
 </body>
 </html>

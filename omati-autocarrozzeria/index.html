@@ -1,146 +1,133 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex,nofollow">
-<title>Omati Autocarrozzeria — Carrozzeria a Vicenza</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Omati Autocarrozzeria — Vicenza</title>
 <style>
-  /* ---------- PALETTE (4 varianti via data-theme) ---------- */
-  body[data-theme="officina"]{--brand:#d7263d;--brand-dark:#b01e30;--on-brand:#fff;--ink:#0f1419;--steel:#1e2a36;--paper:#f6f8fa;--muted:#69747f;--line:#e5e9ee;--accent-soft:rgba(215,38,61,.10);--hero-glow:rgba(215,38,61,.35);}
-  body[data-theme="blu"]{--brand:#1f6feb;--brand-dark:#1858c4;--on-brand:#fff;--ink:#0f1622;--steel:#1c3a5e;--paper:#f5f8fc;--muted:#647085;--line:#e4e9f2;--accent-soft:rgba(31,111,235,.10);--hero-glow:rgba(31,111,235,.35);}
-  body[data-theme="verde"]{--brand:#12866b;--brand-dark:#0e6b56;--on-brand:#fff;--ink:#0f1a16;--steel:#123a30;--paper:#f4f9f7;--muted:#5d6f68;--line:#e0ece7;--accent-soft:rgba(18,134,107,.10);--hero-glow:rgba(18,134,107,.32);}
-  body[data-theme="antracite"]{--brand:#e0a326;--brand-dark:#c4881a;--on-brand:#1a1d22;--ink:#1a1d22;--steel:#2b2f36;--paper:#f7f7f5;--muted:#6b6e74;--line:#e7e7e3;--accent-soft:rgba(224,163,38,.14);--hero-glow:rgba(224,163,38,.30);}
-
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Segoe UI',Roboto,-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.65;background:var(--paper);padding-bottom:64px;}
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 22px;}
-
-  /* ---------- HERO (base + 2 layout) ---------- */
-  .hero{position:relative;background:linear-gradient(135deg,var(--steel),var(--ink));color:#fff;overflow:hidden;}
-  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% -20%,var(--hero-glow),transparent 55%);}
-  .hero .wrap{position:relative;z-index:1;}
-  .eyebrow{letter-spacing:3px;text-transform:uppercase;font-size:.78rem;color:#9fb0bf;}
-  .hero h1{font-size:2.5rem;margin:12px 0 6px;letter-spacing:.4px;}
-  .slogan{color:#cdd6de;font-size:1.12rem;max-width:640px;}
-  .rating{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);padding:7px 16px;border-radius:30px;font-size:.95rem;}
-  .rating .stars{color:#ffb400;}
-  .hero-cta{margin-top:28px;}
-
-  /* variante CENTRATA */
-  .hero--center{padding:78px 0 66px;text-align:center;}
-  .hero--center .slogan{margin:0 auto;}
-
-  /* variante SPLIT (testo + foto) */
-  .hero--split{padding:66px 0;}
-  .hero--split .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;text-align:left;}
-  .hero--split .hero-photo{min-height:260px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:#aeb8c2;font-size:.9rem;text-align:center;padding:20px;}
-
-  .btn{display:inline-block;background:var(--brand);color:var(--on-brand);padding:15px 34px;border-radius:9px;font-weight:600;font-size:1.05rem;transition:background .2s;}
-  .btn:hover{background:var(--brand-dark);}
-
-  /* ---------- SECTIONS ---------- */
-  section{padding:60px 0;}
-  section:nth-of-type(even){background:#fff;}
-  h2{font-size:1.7rem;margin-bottom:8px;}
-  .sub{color:var(--muted);margin-bottom:32px;}
-  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));}
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px;}
-  section:nth-of-type(even) .card{background:#fff;}
-  .card .ico{width:42px;height:42px;border-radius:10px;background:var(--accent-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px;}
-  .card h3{font-size:1.13rem;margin-bottom:6px;}
-  .card p{color:var(--muted);font-size:.97rem;}
-  .about{display:grid;gap:34px;grid-template-columns:1.2fr 1fr;align-items:center;}
-  .photo{background:#dfe5ec;border:1px dashed #b9c3ce;border-radius:14px;min-height:230px;display:flex;align-items:center;justify-content:center;color:#8b97a3;font-size:.9rem;text-align:center;}
-  .review{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;padding:24px;}
-  .review .stars{color:#ffb400;margin-bottom:8px;}
-  .review p{font-style:italic;color:#333;}
-
-  /* ---------- CONTACT ---------- */
-  .contact{background:var(--ink);color:#fff;text-align:center;}
-  .contact h2{color:#fff;}
-  .contact .info{color:#cdd6de;margin:6px 0;font-size:1.05rem;}
-  .contact .btn{margin-top:22px;}
-  footer{background:#0a0d10;color:#7d8794;text-align:center;padding:26px 0;font-size:.85rem;}
-
-  /* ---------- STICKY CALL BAR (mobile) ---------- */
-  .callbar{position:fixed;bottom:0;left:0;right:0;background:var(--brand);color:var(--on-brand);text-align:center;padding:16px;font-weight:600;font-size:1.05rem;box-shadow:0 -4px 16px rgba(0,0,0,.18);z-index:50;}
-  @media(min-width:720px){.callbar{display:none;}}
-  @media(max-width:719px){
-    .about{grid-template-columns:1fr;}
-    .hero h1{font-size:2rem;}
-    .hero--split .wrap{grid-template-columns:1fr;text-align:center;}
-    .hero--split .slogan{margin:0 auto;}
-    .hero--split .hero-photo{min-height:180px;}
-  }
+  :root{--ink:#13211c;--muted:#5c6b63;--brand:#1f6f5b;--brand-dark:#164f41;--gold:#c99a3f;--paper:#faf7f0;--card:#fff;--line:#e6e1d5}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--paper);line-height:1.7}
+  .sans{font-family:'Segoe UI',Roboto,-apple-system,sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+  .btn{display:inline-block;font-family:'Segoe UI',sans-serif;background:var(--brand);color:#fff;font-weight:600;padding:14px 30px;border-radius:2px;letter-spacing:.4px;transition:.2s}
+  .btn:hover{background:var(--brand-dark)}
+  /* top strip */
+  .strip{background:var(--ink);color:#cfd8d2;font-family:'Segoe UI',sans-serif;font-size:.85rem}
+  .strip .wrap{display:flex;justify-content:space-between;gap:12px;padding:9px 26px;flex-wrap:wrap}
+  .strip b{color:var(--gold)}
+  /* hero magazine */
+  .hero{position:relative;min-height:520px;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(19,33,28,.15),rgba(19,33,28,.82)),repeating-linear-gradient(45deg,#2c4a40,#2c4a40 22px,#284339 22px,#284339 44px);color:#fff}
+  .hero .wrap{padding-bottom:56px;padding-top:80px}
+  .kick{font-family:'Segoe UI',sans-serif;letter-spacing:4px;text-transform:uppercase;font-size:.78rem;color:var(--gold);margin-bottom:16px}
+  .hero h1{font-size:3.4rem;line-height:1.08;max-width:14ch;margin-bottom:18px}
+  .hero p{font-family:'Segoe UI',sans-serif;max-width:52ch;color:#e7ede9;margin-bottom:26px}
+  .hero .meta{font-family:'Segoe UI',sans-serif;margin-top:20px;color:#d7ddd9;font-size:.95rem}
+  .g{color:var(--gold)}
+  @media(max-width:720px){.hero h1{font-size:2.3rem}}
+  /* services zigzag */
+  .svc-row{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;border-bottom:1px solid var(--line)}
+  .svc-txt{padding:60px 50px}
+  .svc-img{background:var(--brand);color:#bfe6da;font-family:'Segoe UI',sans-serif;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;min-height:280px;font-size:.9rem}
+  .svc-img.alt{background:#eae4d6;color:#8a8271}
+  .svc-row:nth-child(even) .svc-txt{order:2}
+  .num{font-family:'Segoe UI',sans-serif;color:var(--gold);letter-spacing:3px;font-size:.8rem;font-weight:700}
+  .svc-txt h3{font-size:1.7rem;margin:10px 0 12px}
+  .svc-txt p{font-family:'Segoe UI',sans-serif;color:var(--muted)}
+  @media(max-width:720px){.svc-row{grid-template-columns:1fr}.svc-row:nth-child(even) .svc-txt{order:0}.svc-txt{padding:40px 26px}.svc-img{min-height:180px}}
+  /* section head */
+  .head{text-align:center;padding:70px 0 10px}
+  .head .kick{color:var(--brand-dark)}
+  .head h2{font-size:2.3rem}
+  .head p{font-family:'Segoe UI',sans-serif;color:var(--muted);max-width:56ch;margin:8px auto 0}
+  /* gallery */
+  .gallery{padding:34px 0 80px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .ph{aspect-ratio:1/1;background:#eae4d6;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#a99f88;font-family:'Segoe UI',sans-serif;font-size:.8rem;text-align:center;padding:10px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr 1fr}}
+  /* reviews band */
+  .revs{background:var(--brand);color:#fff}
+  .revs .head h2,.revs .head .kick{color:#fff}
+  .revs .head .kick{color:#d8e8e2}
+  .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding:20px 0 80px}
+  .rev{font-family:'Segoe UI',sans-serif}
+  .rev .st{color:var(--gold);letter-spacing:2px;margin-bottom:10px}
+  .rev p{font-style:italic;color:#eef4f1;margin-bottom:12px}
+  .rev b{font-size:.9rem;color:#cfe3db}
+  @media(max-width:720px){.rgrid{grid-template-columns:1fr}}
+  /* contact */
+  .contact{padding:70px 0}
+  .cwrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+  .cinfo p{font-family:'Segoe UI',sans-serif;color:var(--muted);margin:8px 0}
+  .cinfo .lbl{color:var(--brand-dark);font-weight:700;font-size:.8rem;letter-spacing:2px;text-transform:uppercase}
+  .map{min-height:300px;background:#eae4d6;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#a99f88;font-family:'Segoe UI',sans-serif;text-align:center;padding:20px}
+  @media(max-width:720px){.cwrap{grid-template-columns:1fr}}
+  footer{background:var(--ink);color:#9fb0a8;font-family:'Segoe UI',sans-serif;text-align:center;padding:28px;font-size:.85rem}
 </style>
 </head>
-<body data-theme="officina">
+<body>
+<div class="strip"><div class="wrap"><span>📍 Via Belluno, 1 — Vicenza</span><span><b>☎ +39 0445 962119</b> · Lun–Ven 8:00–18:30</span></div></div>
 
-<header class="hero hero--center">
+<header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Carrozzeria a Vicenza</div>
-    <h1>Omati Autocarrozzeria</h1>
-    <p class="slogan">Riportiamo la tua auto come nuova — riparazioni e verniciature a regola d'arte, con la cura dell'artigiano.</p>
-    <div class="rating"><span class="stars">★★★★★</span> 4,4 su Google · 18 recensioni</div>
-    <div class="hero-cta"><a class="btn" href="tel:+390445962119">📞 Chiama ora</a></div>
+    <div class="kick">Carrozzeria a Vicenza</div>
+    <h1>La cura artigianale che la tua auto merita.</h1>
+    <p class="sans">Da Omati Autocarrozzeria ripariamo e verniciamo ogni tipo di veicolo con la precisione di chi tratta ogni auto come la propria.</p>
+    <a class="btn" href="tel:+390445962119">📞 Chiama ora</a>
+    <div class="meta"><span class="g">★★★★★</span> 4,4 su Google · 18 recensioni</div>
   </div>
 </header>
 
+<div class="head"><div class="kick">Cosa facciamo</div><h2>I nostri servizi</h2></div>
 <section>
-  <div class="wrap">
-    <h2>I nostri servizi</h2>
-    <p class="sub">Tutto quello che serve alla tua auto, in un unico posto di fiducia.</p>
-    <div class="grid">
-      <div class="card"><div class="ico">🔧</div><h3>Riparazione carrozzeria</h3><p>Ammaccature, graffi e danni da urto riparati con finiture impeccabili.</p></div>
-      <div class="card"><div class="ico">🎨</div><h3>Verniciatura</h3><p>Verniciatura totale o parziale, con tinta abbinata perfettamente all'originale.</p></div>
-      <div class="card"><div class="ico">📋</div><h3>Gestione sinistri</h3><p>Ti seguiamo nella pratica con l'assicurazione, dal preventivo alla consegna.</p></div>
-      <div class="card"><div class="ico">🚗</div><h3>Auto sostitutiva</h3><p>Non resti mai a piedi: auto di cortesia durante la riparazione.</p></div>
-    </div>
+  <div class="svc-row">
+    <div class="svc-txt"><div class="num">01 — Carrozzeria</div><h3>Riparazione carrozzeria</h3><p class="sans">Ammaccature, graffi e danni da urto riportati a nuovo, con finiture che non lasciano traccia dell'intervento.</p></div>
+    <div class="svc-img">Spazio foto — riparazione carrozzeria</div>
+  </div>
+  <div class="svc-row">
+    <div class="svc-txt"><div class="num">02 — Verniciatura</div><h3>Verniciatura a forno</h3><p class="sans">Cabina a forno e abbinamento colore computerizzato per una tinta identica all'originale, lucida e uniforme.</p></div>
+    <div class="svc-img alt">Spazio foto — cabina di verniciatura</div>
+  </div>
+  <div class="svc-row">
+    <div class="svc-txt"><div class="num">03 — Sinistri</div><h3>Gestione pratiche assicurative</h3><p class="sans">Ci occupiamo noi di tutta la pratica con l'assicurazione: tu porti l'auto, al resto pensiamo noi.</p></div>
+    <div class="svc-img">Spazio foto — officina</div>
+  </div>
+  <div class="svc-row">
+    <div class="svc-txt"><div class="num">04 — Comodità</div><h3>Auto sostitutiva</h3><p class="sans">Non resti mai a piedi: durante la riparazione ti mettiamo a disposizione una vettura di cortesia.</p></div>
+    <div class="svc-img alt">Spazio foto — auto di cortesia</div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="about">
-      <div>
-        <h2>Chi siamo</h2>
-        <p class="sub" style="margin-bottom:16px;">Un punto di riferimento a Vicenza per chi cerca un lavoro fatto bene, senza sorprese.</p>
-        <p style="color:var(--muted);">Uniamo esperienza artigiana e cura del dettaglio, trattando ogni auto come fosse la nostra. Preventivi chiari, tempi rispettati e un rapporto diretto con il cliente: è così che ci siamo guadagnati la fiducia di centinaia di automobilisti della zona.</p>
-      </div>
-      <div class="photo">Spazio foto — officina e lavori realizzati</div>
-    </div>
-  </div>
-</section>
+<div class="head"><div class="kick">Portfolio</div><h2>I nostri lavori</h2><p>Alcuni interventi realizzati nella nostra officina. Inserisci qui le foto prima/dopo dei tuoi lavori migliori.</p></div>
+<section class="gallery"><div class="wrap"><div class="grid">
+  <div class="ph">Foto lavoro 1</div><div class="ph">Foto lavoro 2</div><div class="ph">Foto lavoro 3</div><div class="ph">Foto lavoro 4</div>
+</div></div></section>
 
-<section>
-  <div class="wrap">
-    <h2>Cosa dicono i clienti</h2>
-    <p class="sub">Recensioni reali dai nostri clienti su Google.</p>
-    <div class="grid">
-      <div class="review"><div class="stars">★★★★★</div><p>"Lavoro perfetto e prezzi onesti. Auto riconsegnata pulita e nei tempi promessi."</p></div>
-      <div class="review"><div class="stars">★★★★★</div><p>"Professionali e disponibili, mi hanno seguito in tutta la pratica assicurativa. Consigliatissimi."</p></div>
-      <div class="review"><div class="stars">★★★★★</div><p>"Ammaccatura sullo sportello sparita del tutto. Non si vede più nulla, bravissimi."</p></div>
-    </div>
-  </div>
+<section class="revs">
+  <div class="head"><div class="kick">Dicono di noi</div><h2>Cosa dicono i clienti</h2></div>
+  <div class="wrap"><div class="rgrid">
+    <div class="rev"><div class="st">★★★★★</div><p>"Ho portato la macchina dopo una grandinata: tornata perfetta, sembrava appena uscita dal concessionario."</p><b>— Davide R.</b></div>
+    <div class="rev"><div class="st">★★★★★</div><p>"Preventivo onesto e nessuna sorpresa sul conto finale. Gente seria e competente."</p><b>— Elena M.</b></div>
+    <div class="rev"><div class="st">★★★★★</div><p>"Mi hanno gestito tutta la pratica con l'assicurazione, io non ho fatto nulla. Comodissimo."</p><b>— Paolo G.</b></div>
+  </div></div>
 </section>
 
 <section class="contact">
-  <div class="wrap">
-    <h2>Vieni a trovarci</h2>
-    <p class="info">📍 Via Belluno, 1 — Vicenza</p>
-    <p class="info">📞 +39 0445 962119</p>
-    <p class="info">🕒 Lun–Ven 8:00–12:30 / 14:00–18:30 · Sab su appuntamento</p>
-    <a class="btn" href="tel:+390445962119">Chiama ora</a>
+  <div class="wrap cwrap">
+    <div class="cinfo">
+      <div class="head" style="text-align:left;padding:0 0 18px"><div class="kick">Dove siamo</div><h2>Vieni a trovarci</h2></div>
+      <p class="lbl">Indirizzo</p><p class="sans">Via Belluno, 1 — Vicenza</p>
+      <p class="lbl">Telefono</p><p class="sans">+39 0445 962119</p>
+      <p class="lbl">Orari</p><p class="sans">Lun–Ven 8:00–12:30 / 14:00–18:30 · Sab su appuntamento</p>
+      <p style="margin-top:20px"><a class="btn" href="tel:+390445962119">📞 Chiama ora</a></p>
+    </div>
+    <div class="map">Mappa — incolla qui l'embed di Google Maps</div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">© Omati Autocarrozzeria · Via Belluno, 1 — Vicenza</div>
-</footer>
-
-<a class="callbar" href="tel:+390445962119">📞 Chiama ora · +39 0445 962119</a>
+<footer>© 2026 Omati Autocarrozzeria · Via Belluno, 1 — Vicenza · Anteprima realizzata come esempio</footer>
 </body>
 </html>
