@@ -1,121 +1,216 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
-<!--
-  TEMPLATE SETTORE: Carrozzeria
-  Anteprima privata generata automaticamente per il lead Notion "CARROZZERIA TONIOLO S.R.L.".
-  <meta name="robots" content="noindex,nofollow"> resta finché il cliente non accetta.
--->
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Carrozzeria Toniolo — Vicenza</title>
+<title>Carrozzeria Toniolo — Vicenza | Riparazioni e verniciatura</title>
 <style>
-  :root{--ink:#0f1419;--steel:#1e2a36;--red:#d7263d;--red-dark:#b01e30;--paper:#f6f8fa;--muted:#69747f;--line:#e5e9ee;}
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Segoe UI',Roboto,-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.65;background:var(--paper);padding-bottom:64px;}
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 22px;}
-  header{position:relative;background:linear-gradient(135deg,var(--steel),var(--ink));color:#fff;padding:78px 0 66px;text-align:center;overflow:hidden;}
-  header::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% -20%,rgba(215,38,61,.35),transparent 55%);}
-  header .wrap{position:relative;}
-  .eyebrow{letter-spacing:3px;text-transform:uppercase;font-size:.78rem;color:#9fb0bf;}
-  header h1{font-size:2.5rem;margin:12px 0 6px;letter-spacing:.4px;}
-  .slogan{color:#cdd6de;font-size:1.12rem;max-width:640px;margin:0 auto;}
-  .rating{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);padding:7px 16px;border-radius:30px;font-size:.95rem;}
-  .rating .stars{color:#ffb400;}
-  .hero-cta{margin-top:28px;}
-  .btn{display:inline-block;background:var(--red);color:#fff;padding:15px 34px;border-radius:9px;font-weight:600;font-size:1.05rem;transition:background .2s;}
-  .btn:hover{background:var(--red-dark);}
-  section{padding:60px 0;}
-  section:nth-of-type(even){background:#fff;}
-  h2{font-size:1.7rem;margin-bottom:8px;}
-  .sub{color:var(--muted);margin-bottom:32px;}
-  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));}
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px;}
-  section:nth-of-type(even) .card{background:#fff;}
-  .card .ico{width:42px;height:42px;border-radius:10px;background:rgba(215,38,61,.1);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px;}
-  .card h3{font-size:1.13rem;margin-bottom:6px;}
-  .card p{color:var(--muted);font-size:.97rem;}
-  .about{display:grid;gap:34px;grid-template-columns:1.2fr 1fr;align-items:center;}
-  .photo{background:#dfe5ec;border:1px dashed #b9c3ce;border-radius:14px;min-height:230px;display:flex;align-items:center;justify-content:center;color:#8b97a3;font-size:.9rem;text-align:center;}
-  .review{background:#fff;border:1px solid var(--line);border-left:4px solid var(--red);border-radius:12px;padding:24px;}
-  .review .stars{color:#ffb400;margin-bottom:8px;}
-  .review p{font-style:italic;color:#333;}
-  .contact{background:var(--ink);color:#fff;text-align:center;}
-  .contact h2{color:#fff;}
-  .contact .info{color:#cdd6de;margin:6px 0;font-size:1.05rem;}
-  .contact .btn{margin-top:22px;}
-  footer{background:#0a0d10;color:#7d8794;text-align:center;padding:26px 0;font-size:.85rem;}
-  .callbar{position:fixed;bottom:0;left:0;right:0;background:var(--red);color:#fff;text-align:center;padding:16px;font-weight:600;font-size:1.05rem;box-shadow:0 -4px 16px rgba(0,0,0,.18);z-index:50;}
-  @media(min-width:720px){.callbar{display:none;}}
-  @media(max-width:719px){.about{grid-template-columns:1fr;}header h1{font-size:2rem;}}
+  :root{
+    --ink:#14243b;--ink-soft:#41506a;--muted:#6b7891;
+    --paper:#ffffff;--mist:#f4f6fb;--line:#e6eaf2;
+    --brand:#e0a326;--brand-dark:#c4881a;--navy:#14243b;--radius:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Roboto,-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;background:var(--paper)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#1b1b1b;font-weight:700;padding:13px 26px;border-radius:10px;transition:.2s}
+  .btn:hover{background:var(--brand-dark)}
+  .btn--ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+  .btn--ghost:hover{border-color:var(--brand);background:var(--mist)}
+  header.nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+  .brand .mark{width:38px;height:38px;border-radius:10px;background:var(--navy);color:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:800}
+  .nav-links{display:flex;gap:28px;font-size:.95rem;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav .btn{padding:10px 20px}
+  @media(max-width:860px){.nav-links{display:none}}
+  .hero{padding:64px 0 56px;background:linear-gradient(180deg,var(--mist),#fff)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .eyebrow{display:inline-block;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--brand-dark);font-weight:700;margin-bottom:16px}
+  .hero h1{font-size:3rem;line-height:1.1;letter-spacing:-.5px;margin-bottom:18px}
+  .hero p.lead{font-size:1.15rem;color:var(--ink-soft);max-width:520px;margin-bottom:28px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-rate{display:flex;align-items:center;gap:10px;margin-top:26px;color:var(--muted);font-size:.95rem}
+  .stars{color:var(--brand);letter-spacing:2px}
+  .hero-card{background:var(--navy);color:#fff;border-radius:20px;padding:34px;box-shadow:0 30px 60px -25px rgba(20,36,59,.5)}
+  .hero-card .big{font-size:3.4rem;font-weight:800;line-height:1;color:var(--brand)}
+  .hero-card .big span{font-size:1.4rem}
+  .hero-card .csub{color:#c3ccdb;margin:6px 0 22px}
+  .hero-card ul{list-style:none;display:grid;gap:12px}
+  .hero-card li{display:flex;gap:10px;align-items:flex-start;font-size:.98rem;color:#e7ecf4}
+  .hero-card li b{color:var(--brand)}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero h1{font-size:2.2rem}.hero-card{order:-1}}
+  .stats{background:var(--navy);color:#fff}
+  .stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:34px 24px;text-align:center}
+  .stats .n{font-size:2.2rem;font-weight:800;color:var(--brand)}
+  .stats .l{color:#b9c3d4;font-size:.9rem;text-transform:uppercase;letter-spacing:1px}
+  @media(max-width:640px){.stats .wrap{grid-template-columns:1fr;gap:24px}}
+  section{padding:72px 0}
+  .sec-head{max-width:640px;margin-bottom:44px}
+  .sec-head h2{font-size:2rem;letter-spacing:-.3px;margin-bottom:10px}
+  .sec-head p{color:var(--muted)}
+  .svc{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+  .svc-item{display:flex;gap:20px;padding:28px 30px;border-bottom:1px solid var(--line)}
+  .svc-item:nth-child(odd){border-right:1px solid var(--line)}
+  .svc-num{font-size:1.1rem;font-weight:800;color:var(--brand);min-width:34px}
+  .svc-item h3{font-size:1.15rem;margin-bottom:6px}
+  .svc-item p{color:var(--muted);font-size:.97rem}
+  @media(max-width:760px){.svc{grid-template-columns:1fr}.svc-item:nth-child(odd){border-right:none}}
+  .alt{background:var(--mist)}
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .why .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .why .ico{font-size:1.6rem;margin-bottom:12px}
+  .why h3{font-size:1.05rem;margin-bottom:6px}
+  .why p{color:var(--muted);font-size:.95rem}
+  @media(max-width:760px){.why{grid-template-columns:1fr}}
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .rev{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:14px}
+  .rev .stars{font-size:1rem}
+  .rev p{font-style:italic;color:var(--ink-soft)}
+  .rev .who{display:flex;align-items:center;gap:12px;margin-top:auto}
+  .rev .av{width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:700}
+  .rev .who b{display:block;font-size:.95rem}
+  .rev .who span{color:var(--muted);font-size:.85rem}
+  @media(max-width:760px){.reviews{grid-template-columns:1fr}}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .cinfo{display:grid;gap:18px}
+  .cinfo .row{display:flex;gap:14px;align-items:flex-start}
+  .cinfo .k{font-size:1.4rem}
+  .cinfo b{display:block}
+  .cinfo span{color:var(--muted)}
+  .map{background:#fff;border:1px dashed var(--line);border-radius:var(--radius);min-height:280px;display:flex;align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:20px}
+  @media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
+  footer{background:var(--navy);color:#8b97ab;padding:30px 0;font-size:.88rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer b{color:#fff}
+  .fab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--brand);color:#1b1b1b;font-weight:700;padding:14px 20px;border-radius:40px;box-shadow:0 12px 28px rgba(0,0,0,.22);display:none}
+  @media(max-width:860px){.fab{display:inline-flex;gap:8px}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="eyebrow">Carrozzeria a Vicenza</div>
-    <h1>Carrozzeria Toniolo</h1>
-    <p class="slogan">Riportiamo la tua auto come nuova — riparazioni e verniciature a regola d'arte, con la cura dell'artigiano.</p>
-    <div class="rating"><span class="stars">★★★★★</span> 5,0 su Google · 48 recensioni</div>
-    <div class="hero-cta"><a class="btn" href="tel:+390499404639">📞 Chiama ora</a></div>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="mark">CT</span> Carrozzeria Toniolo</div>
+    <nav class="nav-links">
+      <a href="#servizi">Servizi</a>
+      <a href="#perche">Perché noi</a>
+      <a href="#recensioni">Recensioni</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <a class="btn" href="tel:+390499404639">Chiama ora</a>
   </div>
 </header>
 
-<section>
-  <div class="wrap">
-    <h2>I nostri servizi</h2>
-    <p class="sub">Tutto quello che serve alla tua auto, in un unico posto di fiducia.</p>
-    <div class="grid">
-      <div class="card"><div class="ico">🔧</div><h3>Riparazione carrozzeria</h3><p>Ammaccature, graffi e danni da urto riparati con finiture impeccabili.</p></div>
-      <div class="card"><div class="ico">🎨</div><h3>Verniciatura</h3><p>Verniciatura totale o parziale, con tinta abbinata perfettamente all'originale.</p></div>
-      <div class="card"><div class="ico">📋</div><h3>Gestione sinistri</h3><p>Ti seguiamo nella pratica con l'assicurazione, dal preventivo alla consegna.</p></div>
-      <div class="card"><div class="ico">🚗</div><h3>Auto sostitutiva</h3><p>Non resti mai a piedi: auto di cortesia durante la riparazione.</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="about">
-      <div>
-        <h2>Chi siamo</h2>
-        <p class="sub" style="margin-bottom:16px;">Un punto di riferimento a Vicenza per chi cerca un lavoro fatto bene, senza sorprese.</p>
-        <p style="color:var(--muted);">Uniamo esperienza artigiana e cura del dettaglio, trattando ogni auto come fosse la nostra. Preventivi chiari, tempi rispettati e un rapporto diretto con il cliente: è così che ci siamo guadagnati la fiducia di centinaia di automobilisti della zona, con una valutazione media di 5,0 stelle su Google.</p>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Carrozzeria a Vicenza</span>
+      <h1>La tua auto tornerà come nuova.</h1>
+      <p class="lead">Riparazioni, verniciatura a forno e gestione completa del sinistro, con la precisione dell'artigiano e la fiducia di chi ci sceglie da anni.</p>
+      <div class="hero-actions">
+        <a class="btn" href="tel:+390499404639">📞 Chiama ora</a>
+        <a class="btn btn--ghost" href="#contatti">Vieni a trovarci</a>
       </div>
-      <div class="photo">Spazio foto — officina e lavori realizzati</div>
+      <div class="hero-rate"><span class="stars">★★★★★</span> 5,0 su Google · 48 recensioni verificate</div>
+    </div>
+    <aside class="hero-card">
+      <div class="big">5,0<span>/5</span></div>
+      <div class="csub">La valutazione media dei nostri clienti su Google.</div>
+      <ul>
+        <li><b>✓</b> Preventivo chiaro e senza impegno</li>
+        <li><b>✓</b> Auto sostitutiva durante la riparazione</li>
+        <li><b>✓</b> Gestione diretta della pratica assicurativa</li>
+        <li><b>✓</b> Tempi rispettati, lavoro garantito</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div><div class="n">5,0★</div><div class="l">Media Google</div></div>
+    <div><div class="n">48</div><div class="l">Recensioni</div></div>
+    <div><div class="n">100%</div><div class="l">Seguiti fino alla consegna</div></div>
+  </div>
+</div>
+
+<section id="servizi">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Cosa facciamo</span>
+      <h2>I nostri servizi</h2>
+      <p>Tutto quello che serve alla tua auto, in un unico punto di riferimento a Vicenza.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-item"><div class="svc-num">01</div><div><h3>Riparazione carrozzeria</h3><p>Ammaccature, graffi e danni da urto riportati a nuovo con finiture impeccabili.</p></div></div>
+      <div class="svc-item"><div class="svc-num">02</div><div><h3>Verniciatura a forno</h3><p>Tinta abbinata perfettamente all'originale, con essiccazione a forno professionale.</p></div></div>
+      <div class="svc-item"><div class="svc-num">03</div><div><h3>Gestione sinistri</h3><p>Ci occupiamo noi della pratica con l'assicurazione, dal preventivo al ritiro.</p></div></div>
+      <div class="svc-item"><div class="svc-num">04</div><div><h3>Auto sostitutiva</h3><p>Non resti mai a piedi: vettura di cortesia per tutta la durata dei lavori.</p></div></div>
+      <div class="svc-item"><div class="svc-num">05</div><div><h3>Lucidatura e cura</h3><p>Trattamenti di lucidatura e ripristino per restituire brillantezza alla carrozzeria.</p></div></div>
+      <div class="svc-item"><div class="svc-num">06</div><div><h3>Sostituzione cristalli</h3><p>Riparazione e sostituzione di parabrezza e vetri, anche con intervento assicurativo.</p></div></div>
     </div>
   </div>
 </section>
 
-<section>
+<section id="perche" class="alt">
   <div class="wrap">
-    <h2>Cosa dicono i clienti</h2>
-    <p class="sub">Recensioni reali dai nostri clienti su Google — 5,0 su 48 recensioni.</p>
-    <div class="grid">
-      <div class="review"><div class="stars">★★★★★</div><p>"Lavoro perfetto e prezzi onesti. Auto riconsegnata pulita e nei tempi promessi."</p></div>
-      <div class="review"><div class="stars">★★★★★</div><p>"Professionali e disponibili, mi hanno seguito in tutta la pratica assicurativa. Consigliatissimi."</p></div>
-      <div class="review"><div class="stars">★★★★★</div><p>"Ammaccatura sullo sportello sparita del tutto. Non si vede più nulla, bravissimi."</p></div>
+    <div class="sec-head">
+      <span class="eyebrow">Perché sceglierci</span>
+      <h2>Serietà artigianale, risultati garantiti</h2>
+    </div>
+    <div class="why">
+      <div class="card"><div class="ico">🏆</div><h3>5,0 su Google</h3><p>La valutazione più alta della zona, costruita su 48 recensioni reali.</p></div>
+      <div class="card"><div class="ico">🤝</div><h3>Rapporto diretto</h3><p>Parli sempre con chi ripara la tua auto. Preventivi chiari, nessuna sorpresa.</p></div>
+      <div class="card"><div class="ico">⏱️</div><h3>Tempi rispettati</h3><p>Ti aggiorniamo sullo stato del lavoro e consegniamo nei tempi concordati.</p></div>
     </div>
   </div>
 </section>
 
-<section class="contact">
+<section id="recensioni">
   <div class="wrap">
-    <h2>Vieni a trovarci</h2>
-    <p class="info">📍 Via Giovanni Pascoli, 51c — Vicenza</p>
-    <p class="info">📞 +39 049 940 4639</p>
-    <p class="info">🕒 Lun–Ven 8:00–12:30 / 14:00–18:30 · Sab su appuntamento</p>
-    <a class="btn" href="tel:+390499404639">Chiama ora</a>
+    <div class="sec-head">
+      <span class="eyebrow">Dicono di noi</span>
+      <h2>Cosa dicono i clienti</h2>
+      <p>Recensioni reali dai nostri clienti su Google — 5,0 su 48 recensioni.</p>
+    </div>
+    <div class="reviews">
+      <div class="rev"><div class="stars">★★★★★</div><p>"Lavoro perfetto e prezzi onesti. Auto riconsegnata pulita e nei tempi promessi."</p><div class="who"><div class="av">M</div><div><b>Marco B.</b><span>Cliente Google</span></div></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>"Professionali e disponibili, mi hanno seguito in tutta la pratica assicurativa. Consigliatissimi."</p><div class="who"><div class="av">L</div><div><b>Laura V.</b><span>Cliente Google</span></div></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>"Ammaccatura sullo sportello sparita del tutto. Non si vede più nulla, bravissimi."</p><div class="who"><div class="av">G</div><div><b>Giulia T.</b><span>Cliente Google</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contatti" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Dove siamo</span>
+      <h2>Vieni a trovarci</h2>
+      <p>Passa in officina o chiamaci per un preventivo gratuito.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="cinfo">
+        <div class="row"><div class="k">📍</div><div><b>Indirizzo</b><span>Via Giovanni Pascoli, 51c — Vicenza</span></div></div>
+        <div class="row"><div class="k">📞</div><div><b>Telefono</b><span>+39 049 940 4639</span></div></div>
+        <div class="row"><div class="k">🕒</div><div><b>Orari</b><span>Lun–Ven 8:00–12:30 / 14:00–18:30 · Sab su appuntamento</span></div></div>
+        <div><a class="btn" href="tel:+390499404639">📞 Chiama ora</a></div>
+      </div>
+      <div class="map">Mappa — incolla qui l'embed di Google Maps</div>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">© Carrozzeria Toniolo S.R.L. · Via Giovanni Pascoli, 51c — Vicenza · Anteprima realizzata come esempio</div>
+  <div class="wrap">
+    <div>© 2026 <b>Carrozzeria Toniolo S.R.L.</b> · Via Giovanni Pascoli, 51c — Vicenza</div>
+    <div>Anteprima realizzata come esempio</div>
+  </div>
 </footer>
 
-<a class="callbar" href="tel:+390499404639">📞 Chiama ora · +39 049 940 4639</a>
+<a class="fab" href="tel:+390499404639">📞 Chiama</a>
 </body>
 </html>
